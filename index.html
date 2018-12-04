@@ -1,0 +1,54 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Psychic Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="game">
+        <h1> The Psychic Game</h1>
+        <p id="directions-text">Guess what letter I am thinking of!</p>
+        <p id="wins-text">Wins</p>
+        <p id="losses-text">Losses</p>
+        <p id="Guesses-text">Guesses Left</p>
+        <p id="soFar-text">Your Guesses so far...</p>
+    </div>
+    
+    <script type="text/javascript">
+        var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
+
+        var wins = 0;
+        var losses = 0;
+        var numGuesses = 0;
+        var guessChoices = [];
+
+        document.onkeyup = function(){
+            var userGuess = event.key;
+            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+            var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
+
+            if (options.indexOf(userGuess) > -1) {
+                if (userGuess === computerGuess) {
+                    wins++;
+                    numGuesses = 9;
+                    guessChoices = [];
+                }
+                if (userGuess !=computerGuess) {
+                    numGuesses --;
+                    guessChoices.push(userGuess);
+                }
+                if (numGuesses === 0) {
+                    numGuesses = 9;
+                    losses ++;
+                    guessChoices = [];
+                }
+                
+            }
+        }
+    </script>
+</body>
+</html>
