@@ -1,85 +1,28 @@
-<!DOCTYPE <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Psychic Game</title>
+    <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--<script src="main.js"></script>-->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <script src="assets/javascript/game.js"></script>
 </head>
 <body>
-    <div id="game"> 
-        <h1> The Psychic Game</h1>
-        <p class="directions-text">Press any key to get started</p>
-        <p class="wins-text">Wins<span id="Wins">0</span></p>
-        <p class="losses-text">Losses<span id="Losses">0</span></p>
-        <p class="Guesses-text">Guesses Left<span id="guessesLeft">0</span></p>
-        <p class="soFar-text">Your guesses so far<span id="soFar">0</span></p>
-    </div>
-    
-    <script type="text/javascript">
-        var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
-
-        var wins = 0;
-        var losses = 0;
-        var numGuesses = 0;
-        var guessChoices = [];
+            <div id="game"> 
+                <h1> The Psychic Game</h1>
+                <p class="directions-text">Press any key to get started</p>
+                <p class="wins-text">Wins<span id="Wins"> 0</span></p>
+                <p class="losses-text">Losses<span id="Losses"> 0</span></p>
+                <p class="Guesses-text">Guesses Left<span id="guessesLeft"> 0</span></p>
+                <p class="soFar-text">Your guesses so far<span id="soFar"> 0</span></p>
+            </div>
         
-        //var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-        var computerGuess; 
         
-            // computer knows what answer is
-        document.onkeyup = function(event){
-            var userGuess = event.key;
-            console.log(userGuess);
-            
-            var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
-
-            if (options.indexOf(userGuess) > -1) {
-                if (userGuess === computerGuess) {
-                    wins++;
-                    numGuesses = 9;
-                    guessChoices = [];
-                    document.getElementById("Wins").textContent = wins;
-
-                    
-                    // if the guess is correct user wins
-                }
-                // // else if (numGuesses === 0) {
-                //     numGuesses = 9;
-                //     losses ++;
-                //     guessChoices = [];
-                    // if the guess was already guessed, and run out of guesses you lose
-                //}
-                else {
-                    numGuesses --;
-                    document.getElementById("guessesLeft").textContent = numGuesses;
-                    guessChoices.push(userGuess);
-                    if (numGuesses == 0){
-                        guessChoices = [];
-                        function computerGuessR(){
-                            computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-                            console.log(computerGuess);
-                        }
-                        
-                    }
-                }
         
-                // subtract 
-            }
-        }
-        function computerGuessR(){
-            computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-            console.log(computerGuess);
-        }
-        function newRound(){
-            numGuesses = 9;
-            document.getElementById("guessesLeft").textContent = numGuesses
-
-        }
-        computerGuessR();
-    </script>
-    
+            </script>
+        
+        </body>
+        </html>
 </body>
 </html>
